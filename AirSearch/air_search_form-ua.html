@@ -1,0 +1,243 @@
+<div class="airsearchform">
+  <div class="menu_list_left">
+    <div class="tabsinn">
+      <ul>
+        <li class="active" id="mnu_list_1"> <a href="javascript:void(0);" rel="roundtrip" onclick="Container.ChangeSearchType('RoundTrip');">
+          <label for="SearchTypeRoundTrip">Round Trip</label>
+          <span></span></a>
+          <input type="radio" name="searchType" value="RoundTrip" id="SearchTypeRoundTrip" onclick="Container.ChangeSearchType(this.value)" checked="true" style="display:none;" />
+        </li>
+        <li id="mnu_list_2"> <a href="javascript:void(0);" rel="oneway" onclick="Container.ChangeSearchType('OneWay');">
+          <label for="SearchTypeOneWay">One Way</label>
+          <span></span></a>
+          <input type="radio" name="searchType" value="OneWay" id="SearchTypeOneWay" onclick="Container.ChangeSearchType(this.value)" style="display:none;" />
+        </li>
+        <li id="mnu_list_3"> <a href="javascript:void(0);" rel="multicity" onclick="Container.ChangeSearchType('MultiDestination');">
+          <label for="SearchTypeMultiDestination">Multi City</label>
+          <span></span></a>
+          <input type="radio" name="searchType" value="MultiDestination" id="SearchTypeMultiDestination" onclick="Container.ChangeSearchType(this.value)" style="display:none;" />
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="OFtabcontainer cf" >
+    <div class="OFcontent">
+      <dl class="fromtosearch cf" id="FromToPanel" style="display:inherit !important;">
+        <dd class="from">
+     
+          <OFramework:Input id="From" datasource="Airports" placeholder = "Enter City or Airport Code"  itemTemplate="[id] name, country" listClass="airports" listWidth="250px" tabindex="1" ></OFramework:Input>
+        </dd>
+        <dd>
+          
+          <OFramework:Input id="To" datasource="Airports" placeholder = "Enter City or Airport Code" itemTemplate="[id] name, country" listClass="airports" listWidth="250px" tabindex="2" ></OFramework:Input>
+        </dd>
+      </dl>
+      <dl class="calform cf" id="DatesPanel">
+        <dd class="nomargin">
+          <div class="calbox">
+            <label>Depart</label>
+            <OFramework:DateInput id="FromDate" tabindex="3" CalendarLayout="1|1"></OFramework:DateInput>
+          </div>
+        </dd>
+        <dd class="nomargin">
+          <dl id="ReturnPanel" class="return-panel">
+            <div class="calbox">
+              <label>Return</label>
+              <OFramework:DateInput id="ReturnDate" tabindex="5" CalendarLayout="1|1"></OFramework:DateInput>
+            </div>
+          </dl>
+        </dd>
+  
+        <div class="allcombo">
+          <label>Adult(18+)</label>
+          <OFramework:DropdownList id="Adults" listWidth="130px" listClass="othercombo" tabindex="25"> <item id="0" name="0 "></item> <item id="1" name="1 "></item> <item id="2" name="2 "></item> <item id="3" name="3 "></item> <item id="4" name="4 "></item> <item id="5" name="5 "></item> <item id="6" name="6 "></item> <item id="7" name="7 "></item> <item id="8" name="8 "></item> </OFramework:DropdownList>
+        </div>
+        <div class="allcombo">
+          <label>Children</label>
+          <OFramework:DropdownList id="Children" listWidth="130px" listClass="othercombo" tabindex="26"> <item id="0" name="0 Child"></item> <item id="1" name="1 Child"></item> <item id="2" name="2 Children"></item> <item id="3" name="3 Children"></item> <item id="4" name="4 Children"></item> <item id="5" name="5 Children"></item> <item id="6" name="6 Children"></item> <item id="7" name="7 Children"></item> </OFramework:DropdownList>
+        </div>
+      </dl>
+      <div id="MultiCityPanel" class="multi-city" style="display:none;">
+        <table id="MultiCityTBL" cellspacing="0" cellpadding="0" width="100%">
+          <tr class="mbookrow" id="Segment_0">
+            <td><dl class="fromtosearch cf" >
+                <dd class="from">
+                  <label>From</label>
+                  <OFramework:Input id="FromCity_0" datasource="Airports" itemTemplate="[id] name, country" listWidth="320px" tabindex="1" listClass="airports" placeholder="City or Airport Code"></OFramework:Input>
+                </dd>
+                <dd>
+                  <label class="d1">To</label>
+                  <OFramework:Input id="ToCity_0" datasource="Airports" itemTemplate="[id] name, country"  listWidth="320px" tabindex="2" listClass="airports" placeholder="City or Airport Code"></OFramework:Input>
+                </dd>
+              </dl>
+              <dl class="calform cf">
+                <dd class="nomargin">
+                  <div class="calbox">
+                    <label>Depart</label>
+                    <OFramework:DateInput id="FlyDate_0" tabindex="3" CalendarLayout="1|1"></OFramework:DateInput>
+                  </div>
+                </dd>
+              </dl></td>
+          </tr>
+          <tr class="mbookrow" id="Segment_1" style="display:none;">
+            <td><dl class="fromtosearch cf">
+                <dd class="from">
+                 
+                  <OFramework:Input id="FromCity_1" datasource="Airports" itemTemplate="[id] name, country"  listWidth="320px" tabindex="5" listClass="airports" placeholder="City or Airport Code"></OFramework:Input>
+                </dd>
+                <dd>
+                
+                  <OFramework:Input id="ToCity_1" datasource="Airports" itemTemplate="[id] name, country"  listWidth="320px" tabindex="6" listClass="airports" placeholder="City or Airport Code"></OFramework:Input>
+                </dd>
+              </dl>
+              <dl class="calform cf">
+                <dd class="nomargin">
+                  <div class="calbox">
+                    <label>Depart</label>
+                    <OFramework:DateInput id="FlyDate_1" tabindex="7" CalendarLayout="1|1"></OFramework:DateInput>
+                  </div>
+                </dd>
+                <dd>
+                  <div class="allcombo">
+                    <OFramework:DropdownList id="FlyTime_1" listWidth="130px" listClass="othercombo" tabindex="8"> <item id="" name="Anytime"></item> <item id="mo" name="Morning"></item> <item id="af" name="Afternoon"></item> <item id="ev" name="Evening"></item> </OFramework:DropdownList>
+                  </div>
+                </dd>
+              </dl></td>
+          </tr>
+          <tr class="mbookrow" id="Segment_2" style="display:none;">
+            <td><dl class="fromtosearch cf">
+                <dd class="from">
+                  
+                  <OFramework:Input id="FromCity_2" datasource="Airports" itemTemplate="[id] name, country"  listWidth="320px" tabindex="9" listClass="airports" placeholder="City or Airport Code"></OFramework:Input>
+                </dd>
+                <dd>
+                  
+                  <OFramework:Input id="ToCity_2" datasource="Airports" itemTemplate="[id] name, country" listWidth="320px" tabindex="10" listClass="airports" placeholder="City or Airport Code"></OFramework:Input>
+                </dd>
+              </dl>
+              <dl class="calform cf">
+                <dd class="nomargin">
+                  <div class="calbox">
+                    <label>Depart</label>
+                    <OFramework:DateInput id="FlyDate_2" tabindex="11" CalendarLayout="1|1"></OFramework:DateInput>
+                  </div>
+                </dd>
+                <dd>
+                  <div class="allcombo">
+                    <OFramework:DropdownList id="FlyTime_2" listWidth="130px" listClass="othercombo" tabindex="12"> <item id="" name="Anytime"></item> <item id="mo" name="Morning"></item> <item id="af" name="Afternoon"></item> <item id="ev" name="Evening"></item> </OFramework:DropdownList>
+                  </div>
+                </dd>
+              </dl></td>
+          </tr>
+          <tr class="mbookrow" id="Segment_3" style="display:none;">
+            <td><dl class="fromtosearch cf" >
+                <dd class="from">
+                  
+                  <OFramework:Input id="FromCity_3" datasource="Airports" itemTemplate="[id] name, country" listWidth="320px" tabindex="13" listClass="airports" placeholder="City or Airport Code"></OFramework:Input>
+                </dd>
+                <dd>
+                  
+                  <OFramework:Input id="ToCity_3" datasource="Airports" itemTemplate="[id] name, country" listWidth="320px" tabindex="14" listClass="airports" placeholder="City or Airport Code"></OFramework:Input>
+                </dd>
+              </dl>
+              <dl class="calform cf">
+                <dd class="nomargin">
+                  <div class="calbox">
+                    <label>Depart</label>
+                    <OFramework:DateInput id="FlyDate_3" tabindex="15" CalendarLayout="1|1"></OFramework:DateInput>
+                  </div>
+                </dd>
+                <dd>
+                  <div class="allcombo">
+                    <OFramework:DropdownList id="FlyTime_3" listWidth="130px" listClass="othercombo" tabindex="16"> <item id="" name="Anytime"></item> <item id="mo" name="Morning"></item> <item id="af" name="Afternoon"></item> <item id="ev" name="Evening"></item> </OFramework:DropdownList>
+                  </div>
+                </dd>
+              </dl></td>
+          </tr>
+          <tr class="mbookrow" id="Segment_4" style="display:none;">
+            <td><dl class="fromtosearch cf">
+                <dd class="from">
+                 
+                  <OFramework:Input id="FromCity_4" datasource="Airports" itemTemplate="[id] name, country" listWidth="320px" tabindex="17" listClass="airports" placeholder="City or Airport Code"></OFramework:Input>
+                </dd>
+                <dd>
+                  
+                  <OFramework:Input id="ToCity_4" datasource="Airports" itemTemplate="[id] name, country" listWidth="320px" tabindex="18" listClass="airports" placeholder="City or Airport Code"></OFramework:Input>
+                </dd>
+              </dl>
+              <dl class="calform cf">
+                <dd class="nomargin">
+                  <div class="calbox">
+                    <label>Depart</label>
+                    <OFramework:DateInput id="FlyDate_4" tabindex="19" CalendarLayout="1|1"></OFramework:DateInput>
+                  </div>
+                </dd>
+                <dd>
+                  <div class="allcombo">
+                    <OFramework:DropdownList id="FlyTime_4" listWidth="130px" listClass="othercombo" tabindex="20"> <item id="" name="Anytime"></item> <item id="mo" name="Morning"></item> <item id="af" name="Afternoon"></item> <item id="ev" name="Evening"></item> </OFramework:DropdownList>
+                  </div>
+                </dd>
+              </dl></td>
+          </tr>
+          <tr class="mbookrow" id="Segment_5" style="display:none;">
+            <td><dl class="fromtosearch cf">
+                <dd class="from">
+                  <label>From</label>
+                  <OFramework:Input id="FromCity_5" datasource="Airports" itemTemplate="[id] name, country" listWidth="320px" tabindex="21" listClass="airports" placeholder="City or Airport Code"></OFramework:Input>
+                </dd>
+                <dd>
+                  <label class="d1">To</label>
+                  <OFramework:Input id="ToCity_5" datasource="Airports" itemTemplate="[id] name, country" listWidth="320px" tabindex="22" listClass="airports" placeholder="City or Airport Code"></OFramework:Input>
+                </dd>
+              </dl>
+              <dl class="calform cf">
+                <dd class="nomargin">
+                  <div class="calbox">
+                    <label>Depart</label>
+                    <OFramework:DateInput id="FlyDate_5" tabindex="23" CalendarLayout="1|1"></OFramework:DateInput>
+                  </div>
+                </dd>
+                <dd>
+                  <div class="allcombo">
+                    <OFramework:DropdownList id="FlyTime_5" listWidth="130px" listClass="othercombo" tabindex="24"> <item id="" name="Anytime"></item> <item id="mo" name="Morning"></item> <item id="af" name="Afternoon"></item> <item id="ev" name="Evening"></item> </OFramework:DropdownList>
+                  </div>
+                </dd>
+              </dl></td>
+          </tr>
+        </table>
+        <div class="addrowbtn"> <a class="addrow" href="Javascript:Container.AddSegment();">Add</a>&nbsp;/&nbsp;<a class="removerow" href="Javascript:Container.RemoveSegment();">Remove</a> </div>
+      </div>
+      <dl class="" style="width: 100%;">
+        <dd class="nomargin seatclass">
+          <label>Cabin</label>
+          <OFramework:DropdownList id="Class" listWidth="270px" listClass="othercombo" tabindex="29"> <item id="" name="All Class/Cabin"></item> <item id="Economy" name="Economy"></item> <item id="Business" name="Business Class"></item> <item id="First" name="First Class"></item> </OFramework:DropdownList>
+        </dd>
+        <dd class="nextrow check">
+          <dl>
+            <dd class="chkoptions">
+              <input type=checkbox id="IntervalCHK" value="1" tabindex="30" />
+              <label for="IntervalCHK">Flexible dates</label>
+            </dd>
+            <dd class="chkoptions">
+              <input type=checkbox value="true" id="NonStopOption" tabindex="31" />
+              <label for="NonStopOption">Direct flights</label>
+            </dd>
+            <dd class="chkoptions cf">
+              <input type=checkbox value="true" id="RefundableOption" tabindex="32" />
+              <label for="RefundableOption">Fares with no penalties</label>
+            </dd>
+            <dd class="chkoptions">
+              <input type=checkbox value="80" id="RadiusCHK" tabindex="33" />
+              <label for="RadiusCHK">Nearby airports</label>
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+      <dl >
+      </dl>
+      <dl >
+        <dd> <a href="javascript:Container.SubmitSearch();" class="ser-flight alignright"><span>Search Flights</span></a> </dd>
+      </dl>
+    </div>
+  </div>
+</div>
